@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>internship-website</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+    body{
+        margin:0;
+        padding:0;
+        background:#380079;
+        overflow-x: hidden;
+        font-family: 'Poppins', sans-serif;
+    }
+    #main-head{
+        width:100%;
+        height: 16.5vh;
+        background:black;
+        opacity: 0.86;
+        display:flex;
+        transition-duration: 0.3s;
+    }
+    #main-head:hover{
+        opacity: 1;
+        box-shadow: 0 1vh 1vh 0 rgba(0, 0, 0, 0.2), 0 1vh 1vh 0 rgba(0, 0, 0, 0.19);
+    }  
+    #logo{
+        width:220px; 
+        height:15vh;
+        background:transparent; 
+        cursor:pointer;
+        position: relative;
+        top:-25px;
+    }
+    #view1{
+        display:flex;
+    }
+    #view1 img{
+        width:100%;
+        height:80vh;
+        object-fit:cover;
+        filter:contrast(70%); 
+        opacity: 0.8;
+        z-index: -1;
+    }
+    #con{
+        width:100%;
+        height:80vh;
+        z-index: 1;
+        position:absolute;
+        background:transparent;
+    }
+    #nav{
+        width: 35vw;
+        height:4vh;
+        position: relative;
+        left: 45vw;
+        top:6vh;
+    }
+    #nav a{
+        margin-left: 3vw;
+        text-decoration: none;
+        color: white;
+        transition-duration: 0.3s;
+    }
+    #nav a:hover{
+        border-bottom: 1px solid white;
+        border-top: 1px solid white;
+    }
+    #con h1{
+        font-size:50px;
+        margin-left: 5vw;
+        border:none;
+        color: black;
+    }
+    #con h1 div{
+        width: 220px;
+        border-top: 2px solid whitesmoke;
+        border-bottom: 2px solid whitesmoke;
+    }
+    #con p{
+        font-size:1.8vw;
+        margin-top: 33vh;
+        margin-left:2vw;
+        font-weight: bold;
+        color:white;
+    }
+    #arrowbtn{
+        position:relative;
+        width:10vw;
+        left:45%;
+        height:10vh;
+        z-index: 2;
+        text-align: center;
+        background:aliceblue;
+        border-radius: 0 0 150px 150px;
+        box-shadow: 0 2vh 4vh 0 rgba(0, 0, 0, 0.2), 0 1vh 1vh 0 rgba(0, 0, 0, 0.19);
+    }
+    #view2 img{
+        box-shadow: 0 1vh 1vh 0 rgba(0, 0, 0, 0.2), 0 1vh 1vh 0 rgba(0, 0, 0, 0.19);
+        width:50%;
+        height:60vh;
+        margin-left: 1.5vw;
+        object-fit: cover;
+    }
+    #arrow{
+        border:solid black;
+        border-width: 0 5px 5px 0;
+        display: inline-block;
+        padding:10px;
+        margin-top:0.1vh;
+        transform: rotateZ(45deg);
+    }
+    #con2 h1 div{
+        width: 75%;
+        border-bottom: 1px solid aliceblue;
+    }
+    #con2 h1{
+        font-size:50px;
+        position: relative;
+        left:4vw;
+        color: aliceblue;
+    }
+    #con2 p{
+        font-size:1.5vw;
+        font-weight: bold;
+        position: relative;
+        left:1vw;
+        color: aliceblue;
+    }
+    #view3 img{
+        box-shadow: 0 1vh 1vh 0 rgba(0, 0, 0, 0.2), 0 1vh 1vh 0 rgba(0, 0, 0, 0.19);
+        position: relative;
+        left:-2.5vw;
+        width:50%;
+        height: 60vh;
+        margin-bottom: 5vh;
+    }    
+    #con3 h1 div{
+        width: 75%;
+        border-bottom: 1px solid whitesmoke;
+    }
+    #con3 h1{
+        font-size:50px;
+        color: aliceblue;
+    }
+    #con3 p{
+        width:75%;
+        font-size:1.5vw;
+        font-weight: bold;
+        color: aliceblue;
+    }
+    #aboutus p{
+        width:85%;
+        position: relative;
+        top:7vh;
+        left: 10vw;
+        font-size:23px;
+        font-weight: bold;
+        color: aliceblue;
+        margin-bottom: 20vh;
+    }
+    #slideshow{
+        width:100%;
+        position: relative;
+        top:-3vh;
+        height: 70vh;
+        background: #5006a5;
+    }
+    #slideshow h3{
+        text-align:center; 
+        position: relative; 
+        top:4vh;
+        font-size: 35px; 
+        color:aliceblue;
+    }
+    #slideshow #container{
+        width:65%;
+        position: relative;
+        left:18%;
+        height: 50vh;
+        flex-wrap: wrap;
+        display:flex;
+    }
+    #main-foot{
+        margin-top:-2.7vh;
+        width: 100%;
+        height: 50vh;
+        background:black;
+        opacity: 0.86;
+        transition-duration: 0.3s;
+        display:flex;
+    }
+    #main-foot:hover{
+        opacity: 1;
+    }
+    .social a{
+        margin: 1vw;
+        text-decoration: none;
+        font-size:2vw;
+        color: aliceblue;
+        transition-duration: 0.4s;
+    }
+    .social a:hover{
+        transform: translateY(-10px);
+    }
+    .social{
+        width: 33.33%;
+        height: 50vh;
+        text-align: center;
+        }
+    .social span,a{
+        position: relative;
+        top:30%;
+    }
+    .quicklinks{
+        width:33.33%;
+        text-align: center;
+    }
+    .quicklinks a{
+        color:aliceblue;
+        font-size:16px;
+        display:block;
+        width: 200px;
+        left:25%;
+        margin:0.5vw;
+        text-decoration: none;
+        position: relative;
+        top:10vh;
+        font-weight:bolder;
+    }
+    .quicklinks a:hover{
+        background:lightgray;
+        color:black;
+    }
+    #contact{
+        width:100%;
+        height:300px;
+        background: #380079;
+        position: absolute;
+        z-index: -15;
+        visibility: hidden;
+        padding:15px;
+        display: flex;
+    }
+    #contact form input[type="text"],input[type="email"]{
+        width:75%;
+        margin-bottom: 10px;
+        border:none;
+        border-radius: 2px;
+        height:20px;
+    }
+    #contact form input[type="text"],input[type="email"],#textarea:focus{
+        outline:none;
+    }
+    #contact form input[type="submit"]{
+        width: 100px;
+        height: 30px;
+        background: white;
+        border: 1px solid black;
+        border-radius:5px;
+        transition-duration: 0.3s;
+    }
+    #contact form input[type="submit"]:hover{
+        background: black;
+        color: white;
+        border: 1px solid white;
+    }
+    #slideshow #imagecontainer{
+        box-shadow: 0 1vh 1vh 0 rgba(0, 0, 0, 0.2), 0 1vh 1vh 0 rgba(0, 0, 0, 0.19);
+        width:100%;
+        height: 46vh;
+        background: transparent;
+        opacity: 0.8;
+        backdrop-filter: saturate(180%) blur(10px);
+        display:flex;
+    }
+    #slideshow #container #imagecontainer #op1{
+        width:100%;
+        position: absolute;
+        z-index: 1;
+        visibility:visible;
+        height:100%;
+        display:flex;
+    }
+    #slideshow #container #imagecontainer #op2{
+        width:100%;
+        position: absolute;
+        z-index: -1;
+        visibility:hidden;
+        height:100%;
+        display:flex;
+    }
+    #slideshow #container #imagecontainer #op3{
+        width:100%;
+        position: absolute;
+        z-index: -2;
+        visibility:hidden;
+        height:100%;
+        display:flex;
+    }
+    #slideshow #container #imagecontainer #op4{
+        width:100%;
+        position: absolute;
+        z-index: -3;
+        visibility:hidden;
+        height:100%;
+        display:flex;
+    }
+    #slideshow #container span{
+        border-radius: 50%;
+        width: 12px;
+        cursor: pointer;
+        position: relative;
+        left:45%;
+        margin-right: 10px;
+        box-shadow: 0 1vh 1vh 0 rgba(0, 0, 0, 0.2), 0 1vh 1vh 0 rgba(0, 0, 0, 0.19);
+        border:1px solid white;
+    }
+    #slideshow #container #bop1{
+        background:white;
+    }
+    #slideshow #imagecontainer img{
+        width: 50%;
+        object-fit:cover;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div id="main-head">
+            <!-- credits to adobe spark logo maker -->
+            <a href=""><img id="logo" src="itX.png"></a>
+            <div id="nav">
+                <a href="loginsignup.html">Login</a>
+                <a href="#aboutus">About</a>
+                <a href="services.html">Services</a>
+                <a href="#main-head" onclick="contactfun()">Contact</a>
+            </div>
+        </div>
+        <div id="contact">
+            <div style="width:50%; text-align:center; 
+            border-right: 1px solid white; margin:20px; font-size:30px; color:white;">
+                Directly mail us at:<br><a style="color: white; font-size:20px;" href="mailto: contactus@itxperts.com">
+                    Compose Email</a>
+            </div>
+            <form style="width: 50%; font-weight: bold; color: white; font-size: 17px; letter-spacing: 1px;">
+                Full Name :<br>
+                <input type="text" placeholder="Full Name"><br>
+                Email-Id :<br>
+                <input type="email" placeholder="Email-Id" required><br>
+                Message :<br>
+                <textarea id="textarea"placeholder="Message" rows="5" cols="30" style="resize: none; width:75%;
+                margin-bottom: 10px;"></textarea><br>
+                <input type="submit" value="Submit">
+            </form>
+            <a href="" style="color:white; text-decoration:none; font-weight:bold; position: relative;
+            left: -50px; top:-10px; height:10px;"> 
+            <ion-icon name="close-outline"></ion-icon></a>
+        </div>
+    </header>
+    <div id="view1">
+        <!-- credits to unsplash.com -->
+        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZ3JhbW1pbmd8ZW58MHx8MHx8&w=1000&q=80">
+        <div id="con">
+            <h1><div>IT-Xperts</div></h1>
+            <p>
+                IT-Xperts helps companies modernize <span style="color:black;">technology</span>,<br> 
+                reimagine processes and transform <span style="color:black;">experiences</span> so they stay ahead in a<br> 
+                fast-changing world. We are <span style="color:black;">ready to Imagine the future</span>
+                that we can deliver on,<br>
+                Build solutions that are unique, and Run the systems of the <span style="color:black;">tomorrow</span> efficiently today.
+            </p>
+        </div> 
+    </div>
+    <div id="arrowbtn"><a href="#view2"><i id="arrow"></i></a></div>
+    <div id="view2" style="margin:10vh 0 5vh 0; display:flex;">
+            <!-- credits to wallpaperflare.com -->
+        <img src="https://c1.wallpaperflare.com/preview/348/29/220/code-coding-computer-developer.jpg">
+        <div id="con2">
+            <h1><div>Innovation</div></h1>
+            <p>
+                <q> <em>There's a way to do it better - find it</em> </q><br>
+                <em>&nbsp&nbsp&nbsp&nbsp-Thomas A. Edison</em><br><br>
+                New ideas are always beneficial for our community. We're always ready to hear your creativity.
+            </p>
+        </div>
+    </div>
+    <div id="view3" style="margin: 30vh 0 0 5vh; display:flex;">
+        <div id="con3">
+            <h1><div>Internships</div></h1>
+            <p>
+                An internship is the best way to put classroom knowledge to practice. By doing an internship,
+                you will gain experience, learn new skills, and add value to your learning. Young minds 
+                possess raw knowledge, with the help of an internship they will understand how and where to
+                direct all their learning.
+            </p>
+        </div>
+        <!-- credits to cloudinary.com -->
+        <img src="https://res.cloudinary.com/highereducation/images/v1635874014/ComputerScience.org/CompSci_Degrees_Best-Associate/CompSci_Degrees_Best-Associate.jpg?_i=AA">
+    </div>
+    <div id="aboutus">
+        <span style="font-size:30px; margin:5vh 0 0 10vh; text-align:center; color: aliceblue;">
+            <h1>About Us</h1>
+        </span>
+        <p>
+            IT-X<sup>&trade;</sup> (IT-Xperts), established since 2011, have been providing IT services 
+            and consulting various companies. We are known for our close-to-perfection services provided by
+            our highly trained IT professionals.<br><br>
+            To grow is our purpose and your growth is our objective. We continously evolve how we work and
+            face challenges head-on so we can continue to deliver our best, sustainable results for our 
+            clients and community.<br><br>
+            We handle with care, the opportunity a client has provided, and give it our first priority.
+            Keeping in mind of the future and improvising our results, so no complexity between us remain.
+            Our strength are our employees as they do their best to deliver an impactible result.
+        </p>
+    </div>
+    <div id="slideshow">
+        <h3>A word from our Team</h3>
+        <div id="container">
+            <div id="imagecontainer">
+                <div id="op1">
+                    <div style="font-style: italic; width:50%; font-weight:bold; height:100%; font-size:23px;
+                    text-align:center; margin-top:60px;"><q>
+                    Team, more like family, always helpful<br>and encouraging </q><br><br>-Person1</div>
+                    <img src="https://st3.depositphotos.com/1037987/15097/i/600/depositphotos_150975580-stock-photo-portrait-of-businesswoman-in-office.jpg">
+                </div>
+                <div id="op2">
+                    <div style="font-style: italic; width:50%; font-weight:bold; height:100%; font-size:23px;
+                    text-align:center; margin-top:60px;"><q>
+                    Best workplace, perfect combinational ratio<br> of work and fun </q><br><br>-Person2</div>
+                    <img src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_481292845_77896.jpg">
+                </div>
+                <div id="op3">
+                    <div style="font-style: italic; width:50%; font-weight:bold; height:100%; font-size:23px;
+                    text-align:center; margin-top:50px;"><q>
+                    Incredibly talented and<br> motivated individuals<br> to work with </q><br><br>-Person3</div>
+                    <img src="https://www.workingmother.com/sites/workingmother.com/files/styles/655_1x_/public/images/2018/04/happy_woman_at_work.jpg?itok=djD3a96S">
+                </div>
+                <div id="op4">
+                    <div style="font-style: italic; width:50%; font-weight:bold; height:100%; font-size:23px;
+                    text-align:center; margin-top:40px;"><q>
+                    Truly collaborative environment<br>with examples of the wider<br> team supproting each other<br> 
+                    each and every day </q><br><br>-Person4</div>
+                    <img src="https://blog-consumer.glassdoor.com/app/uploads/sites/2/why-are-you-the-best-person-for-this-job.jpg">
+                </div>
+            </div>   
+            <span id="bop1" onclick="showslide1()"></span>
+            <span id="bop2" onclick="showslide2()"></span>
+            <span id="bop3" onclick="showslide3()"></span>
+            <span id="bop4" onclick="showslide4()"></span>         
+        </div>
+    </div>
+    <footer id="main-foot">
+        <div class="social">
+            <span style="font-size:25px; color:white; font-weight:bold;">Social Media</span><br><br>
+            <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/" target="_blank" class="fa fa-instagram"></a>
+            <a href="https://www.twitter.com/" target="_blank" class="fa fa-twitter"></a>	
+        </div>
+        <div class="quicklinks">
+            <span style="font-size:25px; color:aliceblue; font-weight:bold; position: relative;
+            top:10%;">Quick Links</span><br>
+            <a href="#main-head">To top</a>
+            <a href="#aboutus">About IT-X</a>
+            <a href="#main-head" onclick="contactfun()">Contacts</a>
+            <a href="loginsignup.html">Login/SignUp</a>
+            <a href="services.html">Services</a>
+        </div>
+        <div class="reachus" style="text-align:center;">
+            <span style="font-size:25px; color:aliceblue; font-weight:bold; position: relative;
+            top:10%;">Reach Us :</span><br>
+            <span style="font-size:14px; color:aliceblue; position: relative; top:25%;">
+                <b style="font-size: 16px;">Address : </b>Sector-17, Xyz-colony, areaname, cityname<br>
+                <b style="font-size: 16px;">Postal Code : </b>123456<br>  
+                <b style="font-size: 16px;">Mobile Number : </b> +91 12345 67890<br>
+                <b style="font-size: 16px;">Email ID : </b>contactus@itxperts.com
+            </span>
+        </div>
+        </footer>
+        <div style="background:black; padding-left:430px; color: aliceblue; font-size:14px;
+        border-top:1px solid white; letter-spacing:2px;">
+            Copyright &copy; 2021 IT-Xperts | All rights reserved. 
+        </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        function contactfun(){
+            document.getElementById('contact').style.visibility = 'visible';
+            document.getElementById('contact').style.zIndex ="10";
+        }
+        function showslide1(){
+            document.getElementById('bop1').style.background = 'white';
+            document.getElementById('bop2').style.background = 'transparent';
+            document.getElementById('bop3').style.background = 'transparent';
+            document.getElementById('bop4').style.background = 'transparent';
+            document.getElementById('op1').style.zIndex = '1';
+            document.getElementById('op2').style.zIndex = '-1';
+            document.getElementById('op3').style.zIndex = '-2';
+            document.getElementById('op4').style.zIndex = '-3';
+            document.getElementById('op1').style.visibility ='visible';
+            document.getElementById('op2').style.visibility ='hidden';
+            document.getElementById('op3').style.visibility ='hidden';
+            document.getElementById('op4').style.visibility ='hidden';
+        }
+        function showslide2(){
+            document.getElementById('bop2').style.background = 'white';
+            document.getElementById('bop1').style.background = 'transparent';
+            document.getElementById('bop3').style.background = 'transparent';
+            document.getElementById('bop4').style.background = 'transparent';
+            document.getElementById('op2').style.zIndex = '1';
+            document.getElementById('op3').style.zIndex = '-1';
+            document.getElementById('op4').style.zIndex = '-2';
+            document.getElementById('op1').style.zIndex = '-3';
+            document.getElementById('op2').style.visibility ='visible';
+            document.getElementById('op3').style.visibility ='hidden';
+            document.getElementById('op4').style.visibility ='hidden';
+            document.getElementById('op1').style.visibility ='hidden';
+        }
+        function showslide3(){
+            document.getElementById('bop3').style.background = 'white';
+            document.getElementById('bop1').style.background = 'transparent';
+            document.getElementById('bop2').style.background = 'transparent';
+            document.getElementById('bop4').style.background = 'transparent';
+            document.getElementById('op3').style.zIndex = '1';
+            document.getElementById('op4').style.zIndex = '-1';
+            document.getElementById('op1').style.zIndex = '-2';
+            document.getElementById('op2').style.zIndex = '-3';
+            document.getElementById('op3').style.visibility ='visible';
+            document.getElementById('op4').style.visibility ='hidden';
+            document.getElementById('op1').style.visibility ='hidden';
+            document.getElementById('op2').style.visibility ='hidden';
+        }
+        function showslide4(){
+            document.getElementById('bop4').style.background = 'white';
+            document.getElementById('bop1').style.background = 'transparent';
+            document.getElementById('bop2').style.background = 'transparent';
+            document.getElementById('bop3').style.background = 'transparent';
+            document.getElementById('op4').style.zIndex = '1';
+            document.getElementById('op1').style.zIndex = '-1';
+            document.getElementById('op2').style.zIndex = '-2';
+            document.getElementById('op3').style.zIndex = '-3';
+            document.getElementById('op4').style.visibility ='visible';
+            document.getElementById('op1').style.visibility ='hidden';
+            document.getElementById('op2').style.visibility ='hidden';
+            document.getElementById('op3').style.visibility ='hidden';
+        }
+    </script>
+</body>
+</html>
