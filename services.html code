@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+        body{
+            margin:0;
+            padding:0;
+            background:#380079;
+            height:950px;
+            font-family: 'Poppins', sans-serif;
+            color:aliceblue;
+        }
+        .heading{
+            position: relative;
+            width:100%;
+            height:150px;
+            background:transparent;
+            z-index: 9;
+            color:aliceblue;
+        }
+        .heading span{
+            position: relative;
+            top:-30px;
+            font-size:50px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        #rightarrow{
+            border:solid black;
+            border-width: 0 5px 5px 0;
+            display: inline-block;
+            padding:10px;
+            transform: rotateZ(-45deg);
+        }
+        #home{
+            width:300px;
+            height:130px;
+        }
+        #back{
+            width:100%;
+            height:500px;
+            object-fit: cover;
+            position: absolute;
+            /* opacity: 0.8; */
+            filter: contrast(60%);
+            z-index: -1;
+        }
+        .flexcontainer{
+            width:90%;
+            position: relative;
+            top: 150px;
+            left:55px;
+            display:flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        .flexcontainer .items{
+            position: relative;
+            width: 300px;
+            height: 250px;
+            background:transparent;
+            backdrop-filter: blur(10px) saturate(180%);
+            text-align: center;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+        .flexcontainer .items .cover img{
+            position: absolute;
+            top: 0; left: 0;
+            transition-duration: 0.3s;
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .flexcontainer .items:hover .cover img{
+            width:0px;
+            height:0px;
+        }
+        .flexcontainer .real-box{
+            width:300px; 
+            height:280px;
+            text-align: center;
+            font-size:20px;
+            font-weight: bold;
+        }
+        .items p{
+            font-size:18px;
+            text-align: center;
+            line-height:30px;
+        }
+    </style>
+</head>
+<body>
+    <!--credits: unsplash.com-->
+    <img id="back" src="https://images.unsplash.com/photo-1542903660-eedba2cda473?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cHJvZ3JhbW1pbmd8ZW58MHx8MHx8&w=1000&q=80">
+    <div class="heading">
+        <a href="internship-lueurtech.html"><img id="home" src="itX.png"></a>
+        <span>Services<i id="rightarrow"></i></span>
+    </div>
+    <div class="flexcontainer">
+        <div class="real-box">
+            Consulting
+            <div class="items">
+                <div class="cover">
+                    <!--credits: unsplash.com-->
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29uc3VsdGluZ3xlbnwwfHwwfHw%3D&w=1000&q=80">
+                </div>
+                <!-- credits: deloitte.com -->
+                <p style="line-height: 27px;">No matter how complex your business questions,
+                 we have the capabilities and experience to deliver the answers you need to move forward.
+                 As the world's largest consulting firm, we can help you take decisive action and achieve
+                  sustainable results.</p>
+            </div>
+        </div>    
+        <div class="real-box">
+            Cloud Services
+            <div class="items">
+                <div class="cover">
+                    <!--credits: wallpapercave.com-->
+                    <img src="https://wallpapercave.com/wp/wp3929762.jpg">
+                </div>
+                <!--credits: deloitte.com-->
+                <p>Cloud is more than a place, a journey, or a technology. It's an opportunity to
+                     reimagine everything. It is the power to transform. It is a catalyst for continuous
+                     reinvention.</p>
+            </div>
+        </div>
+        <div class="real-box">
+            Artificial Intelligence
+            <div class="items">
+                <div class="cover">
+                    <!--credits: media.istockphoto.com-->
+                    <img src="https://media.istockphoto.com/photos/with-blurred-city-lights-picture-id1160249759?k=20&m=1160249759&s=612x612&w=0&h=qKVNJLN2YtkhN5f1nIUvNyg85aulXdI9WXXlGtwp1f8=">
+                </div>
+                <p>We're at the beginning of a golden age of AI. Recent advancements have already led to
+                 invention that previously lived in the realm of science fiction 
+                 ,and we've only scratched the surface of what's possible.</p>
+            </div>
+        </div>
+        <div class="real-box">
+            Software Program Engineering
+            <div class="items">
+                <div class="cover">
+                    <!--credits: unsplash.com-->
+                    <img src="https://images.unsplash.com/photo-1618335829737-2228915674e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c29mdHdhcmUlMjBlbmdpbmVlcmluZ3xlbnwwfHwwfHw%3D&w=1000&q=80">
+                </div>
+                <!-- credits: cognizant.com -->
+                <p style="font-size: 16px; line-height: 20px;">Software product engineering (SPE) is more than software development.
+                 It goes beyond features and backlogs and emphasizes a broader look at great user
+                 experiences and outcomes. SPE is at the frontier of digital business. At IT-Xperts,
+                 we bring together top digital engineering, design and product development talent
+                 to build software that stays top of mind.</p>
+            </div>
+        </div>
+        <div class="real-box">
+            Digital Marketing
+            <div class="items">
+                <div class="cover">
+                    <!--credits: pngitem.com-->
+                    <img src="https://www.pngitem.com/pimgs/m/34-347672_digital-marketing-services-digital-marketing-services-list-hd.png">
+                </div>
+                <!-- credits: accenture.com-->
+                <p style="line-height: 23px;">We help brands reimagine commerce with a transformation system that balances complexity and
+                 simplicity to maximize the growth opportunity. We drive profitable growth with proprietary
+                 assets, deep ecosystem partnerships, and the unmatched power of IT-Xperts.</p>
+            </div>
+        </div>
+        <div class="real-box">
+            Data analytics
+            <div class="items">
+                <div class="cover">
+                    <!--credits: miro.medium.com-->
+                    <img src="https://miro.medium.com/max/1400/1*Eo8kw0PWPpnZ1m-NbTU66w.png">
+                </div>
+                <p style="line-height:27px">Data analytics is the future, and the future is NOW!
+                    Every mouse click, keyboard button press, swipe or tap is used to shape business 
+                    decisions. Everything is about data these days. Data is information and 
+                    information is power.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
