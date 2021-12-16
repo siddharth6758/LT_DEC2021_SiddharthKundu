@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/SignUp</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.teahub.io/photos/full/96-967478_study-desk-desk-lamp-notebook-photo-hd-wallpaper2017.jpg');
+            background-repeat: no-repeat;
+            font-family: 'Poppins',sans-serif;
+        }
+        .holder{
+            position: relative;
+            width: 400px;
+            height: 500px;
+            left: 700px;
+            top:50px;
+            background:rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px) saturate(180%);
+        }
+        #card{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition:all 0.5s ease;
+        }
+        .loginside{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: transparent;
+        }
+        .signupside{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            transform:rotateY(180deg);
+            background:transparent;
+        }
+        .logo{
+            width:330px;
+            height:150px;
+            margin-left: 38px;
+        }
+        .logindec div{
+            text-align:center;
+        }
+        .logindec section{
+            font-size:20px;
+            margin-left: 30px;
+            color:white;
+        }
+        .logindec section input[type="text"],input[type="password"]{
+            width: 75%;
+            background:transparent;
+            border:none;
+            border-bottom:1px solid aliceblue;
+            margin-bottom: 15px;
+            color:white;
+            height: 30px;
+        }
+        .logindec section input[type="text"],input[type="password"]:focus{
+            outline:none;
+        }
+        .logindec section input[type="submit"]{
+            width: 35%;
+            text-align: center;
+            height: 30px;
+            background:transparent;
+            color:white;
+            border:1px solid aliceblue;
+            transition-duration: 0.3s;
+            cursor: pointer;
+        }
+        .logindec section input[type="submit"]:hover{
+            background: black;
+            opacity: 0.8;
+        }
+        .signdec div{
+            text-align: center;
+            margin-top:5px;
+        }
+        .signdec section{
+            font-size:15px;
+            margin-left: 30px;
+            color:white;
+        }
+        .signdec section input[type="text"],input[type="password"],input[type="email"],input[type="number"]{
+            width: 75%;
+            background:transparent;
+            border:none;
+            border-bottom:1px solid aliceblue;
+            margin-bottom: 15px;
+            color:white;
+            height: 15px;
+        }
+        .signdec section input[type="text"],input[type="password"],input[type="email"],input[type="number"]:focus{
+            outline:none;
+        }
+        .signdec section input[type="submit"]{
+            width: 35%;
+            text-align: center;
+            height: 30px;
+            background:transparent;
+            color:white;
+            border:1px solid aliceblue;
+            transition-duration: 0.3s;
+            cursor: pointer;
+        }
+        .signdec section input[type="submit"]:hover{
+            background: black;
+            opacity: 0.8;
+        }
+        #text,#text2,#text3{
+            display: none;
+            font-size:10px;
+        }
+    </style>
+</head>
+<body>
+   <div class="holder">
+       <div id="card">
+           <div class="loginside">
+               <div class="logindec">
+                    <a href="internship-lueurtech.html"><img class="logo" src="itX.png"></a><br>
+                    <div style="font-size:35px; color: aliceblue; font-weight:bold;">Login</div><br>
+                    <section>Username :<br>
+                        <input type="text" placeholder="Username"><br>
+                        Password :<br>
+                        <input type="password" placeholder="Password"><br>
+                        <input type="submit" value="Login"><br><br>
+                        <span style="font-size:15px;">Don't have an account ? 
+                            <button style="font-size: 15px; border:none; border-bottom: 1px solid aliceblue; background:transparent;
+                            color:white; cursor: pointer;" onclick="rotate()">Sign up</button>
+                        </span> 
+                    </section>
+               </div>
+           </div>
+           <div class="signupside">
+               <div class="signdec">
+                    <div style="font-size:35px; color: aliceblue; font-weight:bold;">Sign Up</div><br>            
+                    <section>
+                    <form>
+                        Username :<br>
+                        <input type="text" placeholder="Username" required><br>
+                        Email Id :<br>
+                        <input type="email" id="emailid" placeholder="Email-ID" required><div id="text"></div><br>
+                        Mobile Number :<br>
+                        <input type="text" id="phone" placeholder="Mobile Number" required><div id="text2"></div><br>
+                        Password :<br>
+                        <input type="password" id="pass" placeholder="Password" required><br>
+                        Confirm Password :<br>
+                        <input type="password" id="cpass" placeholder="Confirm Password" required><div id="text3"></div><br>
+                        <input type="submit" value="Sign up" onclick="epvalid(); pvalid()"><br>
+                    </form><br>
+                    <span style="font-size:15px;">Already have an account ? 
+                        <button style="font-size: 15px; border:none; border-bottom: 1px solid aliceblue; background:transparent;
+                        color:white; cursor: pointer;" onclick="rotate2()">Login</button>
+                    </section>
+                </div>
+           </div>
+       </div>
+   </div>
+<script>
+    function rotate(){
+        document.getElementById('card').style.transform='rotateY(180deg)';
+    }
+    function rotate2(){
+        document.getElementById('card').style.transform='rotateY(0deg)';
+    }
+    function epvalid(){
+        document.getElementById('text').style.display='inline';
+        let inp = document.getElementById('emailid').value;
+        let pattern=/\S+@\S+\.\S+/;
+        let isaplha=/^[a-zA-Z]*$/;
+        if(inp.match(pattern))
+        {   document.getElementById('text').innerHTML='valid';
+            document.getElementById('emailid').style.borderBottomColor='green';
+            document.getElementById('text').style.color='green';    }
+        else
+        {       document.getElementById('text').innerHTML='Not valid';
+                document.getElementById('emailid').style.borderBottomColor='red';
+                document.getElementById('text').style.color='red';    }
+        
+        let no= document.getElementById('phone').value;
+        document.getElementById('text2').style.display='inline';
+        
+        if(no.length != 10 || no.match(isaplha)){
+                document.getElementById('text2').innerHTML="Not Valid";
+                document.getElementById('phone').style.borderBottomColor='red';
+                document.getElementById('text2').style.color='red'; }
+        else{
+            document.getElementById('text2').innerHTML="Valid";
+            document.getElementById('phone').style.borderBottomColor='green';
+            document.getElementById('text2').style.color='green';
+            }
+    }
+    function pvalid(){
+        document.getElementById('text3').style.display='inline';
+        let a = document.getElementById("pass").value;   
+        let b = document.getElementById("cpass").value; 
+        if(a.length==0){
+            document.getElementById('text3').innerHTML="Provide Password";
+            document.getElementById('pass').style.borderBottomColor='red';
+            document.getElementById('text3').style.color='red';
+        }
+        else if(b!=a){
+            document.getElementById('text3').innerHTML="Invalid";
+            document.getElementById('cpass').style.borderBottomColor='red';
+            document.getElementById('text3').style.color='red';
+            }
+        else{
+            document.getElementById('text3').innerHTML="Valid";
+            document.getElementById('pass').style.borderBottomColor='green';
+            document.getElementById('cpass').style.borderBottomColor='green';
+            document.getElementById('text3').style.color='green';
+            }
+    }
+</script>
+</body>
+</html>
